@@ -1,0 +1,64 @@
+/* Estilo del cuerpo */
+body {
+    background-color: #000; /* Fondo negro */
+    color: #00FF00; /* Texto verde */
+    font-family: "Courier New", Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor del mapa */
+#mapa {
+    width: 800px;
+    height: 500px;
+    position: relative;
+    background-color: transparent;
+}
+
+/* Sombra en el globo */
+circle {
+    filter: drop-shadow(0px 0px 10px rgba(0, 255, 0, 0.4));
+}
+
+/* Estilo de los países */
+.country {
+    fill: #000;
+    stroke: crimson;
+    stroke-width: 1px;
+}
+
+/* Puntos de conexión */
+.connection-point {
+    fill: #FF0000;
+    opacity: 0.8;
+    animation: pulse 1s infinite alternate;
+}
+
+/* Animación de pulso para los puntos de conexión */
+@keyframes pulse {
+    0% { r: 5px; opacity: 0.6; }
+    100% { r: 8px; opacity: 1; }
+}
+
+/* Arcos de conexión */
+.connection-arc {
+    fill: none;
+    stroke: url(#arc-gradient); /* Aplicar gradiente */
+    stroke-width: 2px;
+    stroke-dasharray: 5, 5;
+    animation: dash 2s linear infinite;
+}
+
+/* Animación de barrido en los arcos */
+@keyframes dash {
+    from {
+        stroke-dashoffset: 100;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
