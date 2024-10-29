@@ -57,7 +57,23 @@ d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/w
             { name: "Nairobi", coords: [36.8219, -1.2864] },
             { name: "Amsterdam", coords: [4.9041, 52.3676] },
             { name: "Athens", coords: [23.7275, 37.9838] },
+            { name: "Costa Rica", coords: [-84.0907, 9.7489] }, // Añadido Costa Rica
+            { name: "Bogotá", coords: [-74.0721, 4.6110] }, // Colombia
+            { name: "Lima", coords: [-77.0428, -12.0464] }, // Perú
+            { name: "Caracas", coords: [-66.9036, 10.4880] }, // Venezuela
+            { name: "Quito", coords: [-78.4678, -0.2295] }, // Ecuador
+            { name: "Santo Domingo", coords: [-69.9348, 18.4861] }, // República Dominicana
+            { name: "Havana", coords: [-82.3666, 23.1136] }, // Cuba
+            { name: "Asunción", coords: [-57.5759, -25.2637] }, // Paraguay
+            { name: "Montevideo", coords: [-56.1645, -34.9011] }, // Uruguay
+            { name: "La Paz", coords: [-68.1193, -16.5000] }, // Bolivia
+            { name: "San Salvador", coords: [-89.1872, 13.6929] }, // El Salvador
+            { name: "Tegucigalpa", coords: [-87.1966, 14.0972] }, // Honduras
+            { name: "Managua", coords: [-86.2711, 12.1364] } // Nicaragua
+            
+            
         ];
+        
         
     // Agregar puntos de conexión
     const connectionPoints = svg.selectAll("circle")
@@ -141,3 +157,4 @@ d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/w
 }).catch(function(error) {
     console.error('Error loading or parsing data:', error);
 });
+

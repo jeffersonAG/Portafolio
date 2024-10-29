@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Jefferson</title>
     <link rel="stylesheet" href="../CSS/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet"> <!-- Agregar esta línea -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
+    <div class="border"></div> <!-- Div para el borde -->
+    <div class="loading-container">
+        <div class="loading-bar" id="loadingBar"></div>
+    </div>
+    
+    <div class="title-container" style="display: none;">
+        <div class="title">
+            <h1></h1>
+        </div>
+    </div>
+    
     <div id="mapa"></div>
 
     <!-- SVG oculto para definir el gradiente -->
@@ -20,7 +32,9 @@
         </defs>
     </svg>
 
+    <script src="../JS/titulo.js"></script> <!-- Asegúrate de que este archivo exista -->
     <script src="../JS/portafolio.js"></script>
 </body>
 </html>
+
 
