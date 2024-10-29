@@ -44,63 +44,54 @@ d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/w
         .attr("cx", d => projection(d.coords)[0])
         .attr("cy", d => projection(d.coords)[1]);
 
-    function createAttackConnections() {
-        cities.forEach((origin, i) => {
-            const target = cities[(i + 1) % cities.length]; // Conectar en forma circular
+    // Función para redibujar las líneas de conexión
+    function drawConnections() {
+        // Eliminar líneas existentes
+        svg.selectAll(".connection-line").remove();
 
-            // Calcular las posiciones de las ciudades
+        // Redibujar las líneas de conexión entre puntos
+        cities.forEach((origin, i) => {
+            const target = cities[(i + 1) % cities.length];
+
+            // Calcular las posiciones actualizadas de las ciudades
             const originCoords = projection(origin.coords);
             const targetCoords = projection(target.coords);
 
-            // Definir una curva con d3.line() y d3.curveNatural()
-            const lineGenerator = d3.line()
-                .curve(d3.curveBasis); // Establecer la interpolación de la línea como curva
-
-            // Crear los puntos de control para la curva
-            const midX = (originCoords[0] + targetCoords[0]) / 2;
-            const midY = (originCoords[1] + targetCoords[1]) / 2 - 50; // Ajusta para que la curva se eleve
-
-            // Crear el camino
-            const pathData = lineGenerator([
-                [originCoords[0], originCoords[1]],
-                [midX, midY],
-                [targetCoords[0], targetCoords[1]]
-            ]);
+            // Crear el camino con una curva de conexión
+            const pathData = `M${originCoords[0]},${originCoords[1]} Q${(originCoords[0] + targetCoords[0]) / 2},${(originCoords[1] + targetCoords[1]) / 2 - 50} ${targetCoords[0]},${targetCoords[1]}`;
 
             // Agregar la línea de conexión curva
             svg.append("path")
                 .attr("class", "connection-line")
                 .attr("d", pathData)
-                .attr("stroke", "url(#arc-gradient)")
+                .attr("stroke", "red")
                 .attr("stroke-width", 2)
                 .attr("fill", "none")
-                .attr("opacity", 0.7)
-                .transition()
-                .duration(2000)
-                .ease(d3.easeLinear)
-                .attr("opacity", 0)
-                .remove();
+                .attr("opacity", 0.8);
         });
     }
 
-    // Rotación continua del globo y actualización de puntos
+    // Rotación continua del globo y actualización de puntos y líneas
     function rotateGlobe() {
         d3.timer(function(elapsed) {
             const rotationSpeed = 0.02; // Velocidad de rotación
             const rotation = [rotationSpeed * elapsed, -10];
             projection.rotate(rotation);
-            svg.selectAll("path").attr("d", path); // Redibujar mapa
-
-            // Actualizar posiciones de los puntos de conexión
+            
+            // Redibujar mapa y puntos
+            svg.selectAll("path").attr("d", path);
             connectionPoints
                 .attr("cx", d => projection(d.coords)[0])
                 .attr("cy", d => projection(d.coords)[1]);
+
+            // Redibujar las líneas de conexión
+            drawConnections();
         });
     }
 
-    // Iniciar rotación y ataques simulados
+    // Iniciar rotación del globo
     rotateGlobe();
-    setInterval(createAttackConnections, 2000); // Crear ataques cada 2 segundos
+
 }).catch(function(error) {
     console.error('Error loading or parsing data:', error);
 });

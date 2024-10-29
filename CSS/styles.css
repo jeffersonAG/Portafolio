@@ -43,8 +43,8 @@ circle {
     100% { r: 8px; opacity: 1; }
 }
 
-/* Arcos de conexión */
-.connection-arc {
+/* Línea de conexión */
+.connection-line {
     fill: none;
     stroke: url(#arc-gradient); /* Aplicar gradiente */
     stroke-width: 2px;
@@ -52,7 +52,7 @@ circle {
     animation: dash 2s linear infinite;
 }
 
-/* Animación de barrido en los arcos */
+/* Animación de barrido en las líneas */
 @keyframes dash {
     from {
         stroke-dashoffset: 100;
