@@ -4,7 +4,7 @@ body {
     color: #00FF00; /* Texto verde */
     font-family: "Courier New", Courier, monospace;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -16,6 +16,8 @@ body {
     height: 500px;
     position: relative;
     background-color: transparent;
+    margin-left: -300px; /* Ajusta este valor para mover más a la izquierda */
+
 }
 
 /* Sombra en el globo */
@@ -46,18 +48,25 @@ circle {
 /* Línea de conexión */
 .connection-line {
     fill: none;
-    stroke: url(#arc-gradient); /* Aplicar gradiente */
-    stroke-width: 2px;
-    stroke-dasharray: 5, 5;
-    animation: dash 2s linear infinite;
+    stroke: rgba(200, 200, 200, 0.6); /* Color gris claro y menos saturado */
+    stroke-width: 2px; /* Grosor de línea moderado */
+    stroke-dasharray: 5, 5; /* Estilo de línea discontinua */
+    opacity: 0.6; /* Ajustar opacidad a un nivel más bajo */
+    filter: drop-shadow(0 0 3px rgba(255, 255, 0, 0.3)); /* Sombra más sutil */
+    transition: stroke-dashoffset 0.5s ease-in-out; /* Suavizar animaciones */
 }
 
 /* Animación de barrido en las líneas */
 @keyframes dash {
-    from {
+    0% {
         stroke-dashoffset: 100;
     }
-    to {
-        stroke-dashoffset: 0;
+    50% {
+        stroke-dashoffset: 0; /* Completar la línea */
+        opacity: 0.8; /* Hacer la línea un poco más visible */
+    }
+    100% {
+        stroke-dashoffset: 100; /* Regresar a la posición inicial */
+        opacity: 0.4; /* Disminuir la opacidad */
     }
 }
