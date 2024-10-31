@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             titleContainer.style.display = "block"; // Mostrar el contenedor del título
             
             // Simular la escritura del título
-            const text = "Jefferson";
+            const text = "Jefferson Arias Gutiérrez";
             let index = 0;
 
             function typeText() {

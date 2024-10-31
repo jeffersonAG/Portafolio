@@ -27,10 +27,10 @@ function typeText1() {
 
             // Si hay más textos, continuar escribiendo
             if (index1 < texts1.length) {
-                setTimeout(typeText1, 1000); // Esperar 1 segundo antes de comenzar a escribir el siguiente texto
+                setTimeout(typeText1, 5); // Esperar 1 segundo antes de comenzar a escribir el siguiente texto
             }
         }
-    }, 100); // Intervalo de tiempo para escribir cada carácter
+    }, 10); // Intervalo de tiempo para escribir cada carácter
 }
 
 // Iniciar la animación de texto para la primera terminal
@@ -64,11 +64,46 @@ function typeText2() {
 
             // Si hay más textos, continuar escribiendo
             if (index2 < texts2.length) {
-                setTimeout(typeText2, 1000); // Esperar 1 segundo antes de comenzar a escribir el siguiente texto
+                setTimeout(typeText2, 5); // Esperar 1 segundo antes de comenzar a escribir el siguiente texto
             }
         }
-    }, 100); // Intervalo de tiempo para escribir cada carácter
+    }, 10); // Intervalo de tiempo para escribir cada carácter
 }
 
 // Iniciar la animación de texto para la segunda terminal
-typeText2();
+typeText2(); // No olvides iniciar la segunda terminal
+
+// Función para la terminal 3
+const output3 = document.getElementById('output3');
+const texts3 = [
+    'Iniciando conexión...',
+    'Cargando módulos...',
+    'Acceso permitido.',
+    'Ejecutando scripts...',
+    'Listo para operar.',
+    'Desconectando...'
+];
+
+let index3 = 0;
+
+function typeText3() {
+    let charIndex = 0;
+    const typingInterval = setInterval(() => {
+        output3.innerHTML += texts3[index3].charAt(charIndex);
+        charIndex++;
+
+        if (charIndex === texts3[index3].length) {
+            clearInterval(typingInterval);
+            output3.innerHTML += '<br>'; // Agregar una nueva línea al finalizar el texto
+            index3++;
+
+            // Si hay más textos, continuar escribiendo
+            if (index3 < texts3.length) {
+                setTimeout(typeText3, 5); // Esperar 1 segundo antes de comenzar a escribir el siguiente texto
+            }
+        }
+    }, 10); // Intervalo de tiempo para escribir cada carácter
+}
+
+// Iniciar la animación de texto para la tercera terminal
+typeText3();
