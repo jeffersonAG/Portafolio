@@ -9,6 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+
 }
 .title-container {
     position: absolute; /* Permite posicionar el contenedor en cualquier lugar */
@@ -48,15 +49,15 @@ body {
     width: 300px; /* Ancho de la barra de carga */
     height: 20px; /* Altura de la barra de carga */
     background-color: rgba(0, 0, 0, 0.8); /* Fondo de la barra */
-    border: 2px solid crimson; /* Borde verde brillante */
-    box-shadow: 0 0 20px crimson; /* Sombra de neón */
+    border: 2px solid rgba(255, 0, 0, 0.5); /* Borde verde brillante */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Sombra de neón */
     z-index: 2; /* Asegurarse de que esté por encima */
 }
 
 .loading-bar {
     height: 100%; /* Que ocupe toda la altura de la barra */
     width: 0; /* Comenzar con un ancho de 0 */
-    background-color: crimson; /* Color de la barra */
+    background-color: rgba(255, 0, 0, 0.5); /* Color de la barra */
 }
 
 /* Animación de aparición */
@@ -79,11 +80,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 2px dashed crimson; /* Borde discontínuo de color crimson */
+    border: 2px dashed crimson; /* Borde discontinuo de color crimson */
     box-sizing: border-box; /* Incluye el borde en el cálculo del tamaño */
-    pointer-events: none; /* Asegurarte de que no afecte la interacción con otros elementos */
+    pointer-events: none; /* Asegura que no afecte la interacción con otros elementos */
     animation: flickerEffect 2s infinite; /* Animación de parpadeo */
+    z-index: 10; /* Coloca el borde detrás de otros elementos */
 }
+
 
 /* Animación de aparición */
 @keyframes fadeIn {
@@ -110,6 +113,296 @@ body {
     }
 }
 
+#diseño_de_terminal {
+    position: absolute; /* Cambia a absoluto */
+    top: 300px; /* Distancia desde el borde superior */
+    left: 770px; /* Distancia desde el borde izquierdo */
+    background-color: black;
+    color: crimson;
+    font-family: "Courier New", Courier, monospace;
+    padding: 0; /* Sin padding para que la barra de título encaje */
+    width: 780px;
+    height: 400px;
+    border-radius: 5px;
+    overflow-y: auto;
+    box-shadow: 0px 0px 10px crimson;
+    z-index: 5; /* Asegúrate de que el z-index sea menor que el del borde */
+
+    animation: openTerminal 1s ease-out forwards; /* Animación */
+
+
+}
+/* Animación de apertura de la terminal */
+@keyframes openTerminal {
+    0% {
+        transform: translate(-50%, -50%) scale(0); /* Comienza en el centro y tamaño 0 */
+        opacity: 0; /* Comienza invisible */
+    }
+    30% {
+        opacity: 0.5; /* Aumenta la opacidad */
+        transform: translate(-50%, -50%) scale(0.8); /* Se expande un poco */
+    }
+    60% {
+        opacity: 1; /* Se vuelve completamente visible */
+        transform: translate(-50%, -50%) scale(1.1); /* Efecto de "rebotar" */
+    }
+    100% {
+        transform: translate(0, 0) scale(1); /* Se mueve a la posición final y tamaño normal */
+    }
+}
+
+.title-bar {
+    background-color: #1e1e1e; /* Color de fondo de la barra de título */
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.buttons {
+    display: flex; /* Usar flexbox para los botones */
+    margin-right: 10px; /* Espacio entre los botones y el título */
+}
+
+.button {
+    width: 30px; /* Ancho de los botones */
+    height: 30px; /* Alto de los botones */
+    border-radius: 3px; /* Bordes redondeados */
+    margin-right: 5px; /* Espacio entre los botones */
+    background-color: #444; /* Color de fondo de los botones */
+    border: none; /* Sin borde */
+    color: black; /* Color del texto del botón */
+    font-size: 18px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor para que parezca un botón */
+    display: flex; /* Usar flexbox para centrar el texto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.button:hover {
+    background-color: #ff000080; /* Color al pasar el mouse por encima */
+}
+
+
+.title {
+    flex-grow: 1;
+    color: crimson; /* Color del texto del título */
+    font-weight: bold; /* Negrita para el título */
+}
+
+.linea {
+    margin: 10px; /* Espacio alrededor del texto */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+
+
+#diseño_de_terminal2 {
+    position: absolute; /* Mantiene la posición absoluta */
+    top: 725px; /* Distancia desde el borde superior */
+    left: 770px; /* Distancia desde el borde izquierdo */
+    background-color: black;
+    color: crimson;
+    font-family: "Courier New", Courier, monospace;
+    padding: 0; /* Sin padding para que la barra de título encaje */
+    width: 380px;
+    height: 400px;
+    border-radius: 5px;
+    overflow-y: auto; /* Permite desplazamiento en la terminal */
+    box-shadow: 0px 0px 10px crimson; /* Sombra de la caja */
+    animation: openTerminal2 1s ease-out forwards; /* Animación */
+    overflow: hidden; /* Evitar cualquier barra de desplazamiento en el body */
+    z-index: 5; /* Asegúrate de que el z-index sea menor que el del borde */
+    animation: openTerminal2 1s ease-out forwards; /* Animación */
+
+
+}
+
+/* Animación de apertura de la terminal */
+@keyframes openTerminal2 {
+    0% {
+        transform: translate(0, 100%) scale(0); /* Comienza fuera de la pantalla hacia abajo */
+        opacity: 0; /* Comienza invisible */
+    }
+    30% {
+        opacity: 0.5; /* Aumenta la opacidad */
+        transform: translate(0, 20%) scale(0.8); /* Se expande un poco hacia arriba */
+    }
+    60% {
+        opacity: 1; /* Se vuelve completamente visible */
+        transform: translate(0, 0) scale(1.1); /* Efecto de "rebotar" */
+    }
+    100% {
+        transform: translate(0, 0) scale(1); /* Se mueve a la posición final y tamaño normal */
+    }
+}
+
+
+
+.title-bar2 {
+    background-color: #1e1e1e; /* Color de fondo de la barra de título */
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.buttons2 {
+    display: flex; /* Usar flexbox para los botones */
+    margin-right: 10px; /* Espacio entre los botones y el título */
+}
+
+.button2 {
+    width: 30px; /* Ancho de los botones */
+    height: 30px; /* Alto de los botones */
+    border-radius: 3px; /* Bordes redondeados */
+    margin-right: 5px; /* Espacio entre los botones */
+    background-color: #444; /* Color de fondo de los botones */
+    border: none; /* Sin borde */
+    color: black; /* Color del texto del botón */
+    font-size: 18px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor para que parezca un botón */
+    display: flex; /* Usar flexbox para centrar el texto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.button:hover2 {
+    background-color: crimson; /* Color al pasar el mouse por encima */
+}
+
+
+.title2 {
+    flex-grow: 1;
+    color: crimson; /* Color del texto del título */
+    font-weight: bold; /* Negrita para el título */
+}
+
+.linea2 {
+    margin: 10px; /* Espacio alrededor del texto */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+
+#diseño_de_terminal3 {
+    position: absolute; /* Mantiene la posición absoluta */
+    top: 725px; /* Distancia desde el borde superior */
+    left: 1170px; /* Distancia desde el borde izquierdo */
+    background-color: black;
+    color: crimson;
+    font-family: "Courier New", Courier, monospace;
+    padding: 0; /* Sin padding para que la barra de título encaje */
+    width: 380px;
+    height: 400px;
+    border-radius: 5px;
+    overflow-y: auto; /* Permite desplazamiento en la terminal */
+    box-shadow: 0px 0px 10px crimson; /* Sombra de la caja */
+    animation: openTerminal2 1s ease-out forwards; /* Animación */
+    overflow: hidden; /* Evitar cualquier barra de desplazamiento en el body */
+    z-index: 5; /* Asegúrate de que el z-index sea menor que el del borde */
+    animation: openTerminal2 1s ease-out forwards; /* Animación */
+
+
+}
+
+/* Animación de apertura de la terminal */
+@keyframes openTerminal3 {
+    0% {
+        transform: translate(0, 100%) scale(0); /* Comienza fuera de la pantalla hacia abajo */
+        opacity: 0; /* Comienza invisible */
+    }
+    30% {
+        opacity: 0.5; /* Aumenta la opacidad */
+        transform: translate(0, 20%) scale(0.8); /* Se expande un poco hacia arriba */
+    }
+    60% {
+        opacity: 1; /* Se vuelve completamente visible */
+        transform: translate(0, 0) scale(1.1); /* Efecto de "rebotar" */
+    }
+    100% {
+        transform: translate(0, 0) scale(1); /* Se mueve a la posición final y tamaño normal */
+    }
+}
+
+
+
+.title-bar3 {
+    background-color: #1e1e1e; /* Color de fondo de la barra de título */
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.buttons3 {
+    display: flex; /* Usar flexbox para los botones */
+    margin-right: 10px; /* Espacio entre los botones y el título */
+}
+
+.button3 {
+    width: 30px; /* Ancho de los botones */
+    height: 30px; /* Alto de los botones */
+    border-radius: 3px; /* Bordes redondeados */
+    margin-right: 5px; /* Espacio entre los botones */
+    background-color: #444; /* Color de fondo de los botones */
+    border: none; /* Sin borde */
+    color: black; /* Color del texto del botón */
+    font-size: 18px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor para que parezca un botón */
+    display: flex; /* Usar flexbox para centrar el texto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.button:hover3 {
+    background-color: crimson; /* Color al pasar el mouse por encima */
+}
+
+
+.title3 {
+    flex-grow: 1;
+    color: crimson; /* Color del texto del título */
+    font-weight: bold; /* Negrita para el título */
+}
+
+.linea3 {
+    margin: 10px; /* Espacio alrededor del texto */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+
+
+
+
+.foto_de_perfil {
+    display: flex;               
+    justify-content: center;     
+    align-items: center;         
+    margin: 20px;               
+    position: relative;          /* Permite usar posiciones absolutas */
+}
+
+.foto_de_perfil img {
+    width: 150px;               
+    height: 150px;              
+    border-radius: 50%;         /* Mantiene la imagen circular */
+    position: absolute;          /* Permite mover la imagen */
+    top: -370px;                  /* Ajusta la posición vertical */
+    left: 1000px;                 /* Ajusta la posición horizontal */
+    border: 5px double rgba(255, 0, 0, 0.5);      /* Borde doble rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
+    cursor: pointer;            /* Cambia el cursor al pasar sobre la imagen */
+
+}
+
+
+.foto_de_perfil img:hover {
+    transform: translateY(-5px); /* Movimiento sutil hacia arriba */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
+}
 
 
 /* Contenedor del mapa */
@@ -130,17 +423,17 @@ circle {
 /* Estilo de los países */
 .country {
     fill: #000;
-    stroke: crimson;
+    stroke: rgba(255, 0, 0, 0.5);
     stroke-width: 1px;
 }
 
 /* Puntos de conexión */
 .connection-point {
-    fill: crimson; /* Color base crimson */
+    fill: rgba(255, 0, 0, 0.5); /* Color base crimson */
     opacity: 0.9; /* Opacidad alta */
     stroke: rgba(0, 0, 0, 0.5); /* Borde oscuro */
     stroke-width: 2px; /* Grosor del borde */
-    filter: drop-shadow(0 0 10px crimson); /* Sombra difusa para efecto de neón */
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5)); /* Sombra difusa para efecto de neón */
     animation: pulse 1.2s ease-in-out infinite; /* Animación de pulso */
     transition: transform 0.2s ease-in-out; /* Transición suave */
 }
