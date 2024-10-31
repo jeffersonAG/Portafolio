@@ -8,10 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet"> <!-- Agregar esta línea -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
-<body>
+<body >
+    
     <div class="border"></div> <!-- Div para el borde -->
     <div class="loading-container">
-        <div class="loading-bar" id="loadingBar"></div>
+        <div class="loading-bar" id="loadingBar"></div><!---Div para -->
     </div>
     
     <div class="title-container" style="display: none;">
@@ -20,20 +21,56 @@
         </div>
     </div>
     
-    <div id="mapa"></div>
+    <div id="mapa"></div><!---Div del mapa de simulacion de ciber ataque -->
+
+    <div id="diseño_de_terminal" class="terminal">
+        <div class="title-bar">
+            <div class="buttons">
+                <button class="button close" title="Cerrar">✖</button> <!-- Botón de cerrar -->
+                <button class="button minimize" title="Minimizar">−</button> <!-- Botón de minimizar -->
+                <button class="button maximize" title="Maximizar">□</button> <!-- Botón de maximizar -->
+            </div>
+            <div class="title">Sobre Mi</div>
+        </div>
+        <div id="output" class="linea"></div>
+    </div>
+
+    <div id="diseño_de_terminal2" class="terminal">
+        <div class="title-bar">
+            <div class="buttons">
+                <button class="button close" title="Cerrar">✖</button> <!-- Botón de cerrar -->
+                <button class="button minimize" title="Minimizar">−</button> <!-- Botón de minimizar -->
+                <button class="button maximize" title="Maximizar">□</button> <!-- Botón de maximizar -->
+            </div>
+            <div class="title">Educación</div>
+        </div>
+        <div id="output2" class="linea"></div>
+    </div>
+
+    <div id="Perfil" class="foto_de_perfil" onclick="playMusic()">
+        <img src="../IMAGE/Avatar 2d.jpg" alt="Perfil">
+    </div>
+   
+    
 
     <!-- SVG oculto para definir el gradiente -->
     <svg width="0" height="0">
         <defs>
             <linearGradient id="arc-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" style="stop-color:rgba(255, 0, 0, 0.6);stop-opacity:1" />
-                <stop offset="100%" style="stop-color:rgba(0, 255, 0, 0.6);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgba(255, 0, 0, 0.6);stop-opacity:1" />
             </linearGradient>
         </defs>
     </svg>
 
     <script src="../JS/titulo.js"></script> <!-- Asegúrate de que este archivo exista -->
     <script src="../JS/portafolio.js"></script>
+    <script src="../JS/terminal.js"></script>
+    <script src="../JS/perfil.js"></script>
+
+    
+    
+    
 </body>
 </html>
 

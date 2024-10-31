@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             titleContainer.style.display = "block"; // Mostrar el contenedor del título
             
             // Simular la escritura del título
-            const text = "jefferson";
+            const text = "Jefferson";
             let index = 0;
 
             function typeText() {
@@ -26,12 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     index++;
                     setTimeout(typeText, 100); // Controlar la velocidad de escritura
                 } else {
-                    // Agregar un cursor parpadeante al final
-                    const cursor = document.createElement("span");
-                    cursor.textContent = "|";
-                    cursor.style.color = "#00FF00"; // Color del cursor
-                    cursor.style.animation = "blink 1s step-end infinite"; // Animación de parpadeo
-                    titleText.appendChild(cursor);
+                    
                 }
             }
 
