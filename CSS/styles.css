@@ -240,24 +240,24 @@ body {
 
 }
 
-/* Animación de apertura de la terminal2 */
+/* Animación de apertura llamativa de la terminal2 */
 @keyframes openTerminal2 {
     0% {
-        transform: translate(0, 100%) scale(0); /* Comienza fuera de la pantalla hacia abajo */
+        transform: translate(-200%, 150%) scale(0); /* Comienza aún más a la izquierda y hacia abajo */
         opacity: 0; /* Comienza invisible */
     }
-    30% {
-        opacity: 0.5; /* Aumenta la opacidad */
-        transform: translate(0, 20%) scale(0.8); /* Se expande un poco hacia arriba */
+    40% {
+        opacity: 1; /* Se vuelve visible */
+        transform: translate(20%, -10%) scale(1.2); /* Rebote grande hacia arriba y la derecha */
     }
-    60% {
-        opacity: 1; /* Se vuelve completamente visible */
-        transform: translate(0, 0) scale(1.1); /* Efecto de "rebotar" */
+    70% {
+        transform: translate(-5%, 5%) scale(0.95); /* Rebote suave hacia la posición final */
     }
     100% {
-        transform: translate(0, 0) scale(1); /* Se mueve a la posición final y tamaño normal */
+        transform: translate(0, 0) scale(1); /* Se coloca en la posición final */
     }
 }
+
 
 
 
@@ -339,10 +339,6 @@ body {
         transform: translate(0, 0); /* Se mueve a la posición final */
     }
 }
-
-
-
-
 
 .title-bar3 {
     background-color: #1e1e1e; /* Color de fondo de la barra de título */
@@ -496,9 +492,93 @@ body {
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
 }
 
+/*Diseño de foto de github*/
+.foto_de_github{
+    display: flex;               
+    justify-content: center;     
+    align-items: center;         
+    margin: 20px;               
+    position: relative;
+
+}
+.foto_de_github img{
+    width: 50px;               
+    height: 50px;              
+    border-radius: 50%;         /* Mantiene la imagen circular */
+    position: absolute;          /* Permite mover la imagen */
+    top: -370px;                  /* Ajusta la posición vertical */
+    left: 1200px;                 /* Ajusta la posición horizontal */
+    border: 5px double rgba(255, 0, 0, 0.5);      /* Borde doble rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
+    cursor: pointer;            /* Cambia el cursor al pasar sobre la imagen */
+
+}
+.foto_de_github img:hover{
+    transform: translateY(-5px); /* Movimiento sutil hacia arriba */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
+}
+
+/*Diseño de foto cv*/
+.foto_de_cv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 5px;                /* Tamaño del contenedor */
+    height: 5px;               /* Tamaño del contenedor */
+    overflow: hidden;            /* Oculta cualquier contenido que sobresalga */
+}
+
+.foto_de_cv img {
+    width: 50%;                 /* La imagen ocupa todo el contenedor */
+    height: auto;                /* Mantiene la proporción de la imagen */
+     border-radius: 50%;         /* Mantiene la imagen circular */
+    position: absolute;          /* Permite mover la imagen */
+    border-radius: 50%;          /* Mantiene la imagen circular */
+    border: 5px double rgba(255, 0, 0, 0.5); /* Borde doble rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
+    cursor: pointer;             /* Cambia el cursor al pasar sobre la imagen */
+    top: -280PX;
+    left: 1200px; 
+}
+
+.foto_de_cv img:hover {
+    transform: translateY(-5px); /* Movimiento sutil hacia arriba */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
+}
+/*Diseño de foto linkedin*/
+.Perfil_de_linkedin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 5px;                /* Tamaño del contenedor */
+    height: 5px;               /* Tamaño del contenedor */
+    overflow: hidden;            /* Oculta cualquier contenido que sobresalga */
+}
+
+.Perfil_de_linkedin img {
+    width: 50%;                 /* La imagen ocupa todo el contenedor */
+    height: auto;                /* Mantiene la proporción de la imagen */
+     border-radius: 50%;         /* Mantiene la imagen circular */
+    position: absolute;          /* Permite mover la imagen */
+    border-radius: 50%;          /* Mantiene la imagen circular */
+    border: 5px double rgba(255, 0, 0, 0.5); /* Borde doble rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
+    cursor: pointer;             /* Cambia el cursor al pasar sobre la imagen */
+    top: -180PX;
+    left: 1200px; 
+}
+
+.Perfil_de_linkedin img:hover {
+    transform: translateY(-5px); /* Movimiento sutil hacia arriba */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
+}
 
 
-/*Diseño de rueda de programas conocidos */
+
+
+
 
 
 
