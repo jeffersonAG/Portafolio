@@ -1,15 +1,19 @@
 // Función para la primera terminal
 const output1 = document.getElementById('output');
 const texts1 = [
-  'Iniciando proceso...',
-  'Cualidades: Creativo e innovador...',
-  'Trabajo en equipo: Siempre dispuesto a ayudar...',
-  'Pasión: Desarrollo de software y ciberseguridad...',
-  'Comprometido con el aprendizaje continuo...',
-  'Conectando ideas y soluciones...',
-  'Cargando habilidades...',
-  'Proceso completo. Listo para colaborar...'
-];
+    'Estudiante de Ingeniería en Computadores. \n' +
+    'Trabajador versátil con experiencia en:\n' +
+    '- Desarrollo de aplicaciones móviles\n' +
+    '- Creación de sitios web\n' +
+    '- Análisis de amenazas cibernéticas\n' +
+    '- Reparación de hardware\n' +
+    'Enfocado en soluciones tecnológicas eficaces,\n' +
+    'aplicando mi conocimiento interdisciplinario.\n' +
+    'Apasionado por la innovación y siempre buscando\n' +
+    'oportunidades para aplicar mis habilidades\n' +
+    'en proyectos desafiantes.'
+  ];
+  
 
 
 let index1 = 0;
@@ -39,14 +43,14 @@ typeText1();
 // Función para la segunda terminal
 const output2 = document.getElementById('output2');
 const texts2 = [
-    'Conectando al servidor...',
-    'Verificando credenciales...',
-    'Accediendo a datos...',
-    'Cargando información...',
-    'Datos encontrados: 42 registros.',
-    'Descargando datos...',
+    'Trabajo en Equipo',
+    'Trabajo Bajo Presión',
+    'Ética Hacke',
+    'Colaboración Interdisciplinaria',
+    'Empatía Tecnológica',
+    'Resiliencia Digital',
     'Proceso completo.',
-    'Desconectando...'
+    'Pensamiento Holístico'
 ];
 
 let index2 = 0;
@@ -76,13 +80,21 @@ typeText2(); // No olvides iniciar la segunda terminal
 // Función para la terminal 3
 const output3 = document.getElementById('output3');
 const texts3 = [
-    'Iniciando conexión...',
-    'Cargando módulos...',
-    'Acceso permitido.',
-    'Ejecutando scripts...',
+    '. Estudiante de Ingenieria en Computadores en el Instituto Tecnologico de Costa Rica',
+    '. Introduction to Cybersecurity / Cisco',
+    '. Introduction to Data Science / Cisco', 
+    '. Junior Cybersecurity Analyst / Cisco' ,
+    '. Python Essentials 1 / Cisco',
+    '. Python Essentials 2 / Cisco' ,
+    '. JavaScript Essentials 1 / Cisco',
+    '. Introducción a Git y GitHub / TodoCode Academy',
+    '. HTML y CSS desde Cero / TodoCode Academy', 
+    '. Protege tu negocio: Ciberseguridad en el Teletrabajo / Google',
+    '. Computer Hardware Basics / Cisco', 
     'Listo para operar.',
-    'Desconectando...'
+    
 ];
+
 
 let index3 = 0;
 
@@ -107,3 +119,5 @@ function typeText3() {
 
 // Iniciar la animación de texto para la tercera terminal
 typeText3();
+
+
