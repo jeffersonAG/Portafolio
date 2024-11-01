@@ -141,6 +141,7 @@ body {
     background-color: black;
     color: crimson;
     font-family: "Courier New", Courier, monospace;
+
     padding: 0; /* Sin padding para que la barra de título encaje */
     width: 980px;
     height: 400px;
@@ -391,7 +392,7 @@ body {
     left: 50px;
     background-color: black;
     color: crimson;
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Press Start 2P', cursive; 
     padding: 0;
     width: 1370px;
     height: 400px;
@@ -421,13 +422,12 @@ body {
 }
 
 .title-bar4 {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Color de fondo de la barra de título */
     display: flex;
     align-items: center;
     padding: 5px 10px;
     border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
+    border-top-right-radius: 5px;}
 
 .buttons4 {
     display: flex;
@@ -455,9 +455,10 @@ body {
 
 .title4 {
     flex-grow: 1;
-    color: crimson;
-    font-weight: bold;
+    color: crimson; /* Color del texto del título */
+    font-weight: bold; /* Negrita para el título */
 }
+
 
 .linea4 {
     margin: 10px;
@@ -502,8 +503,8 @@ body {
 
 }
 .foto_de_github img{
-    width: 50px;               
-    height: 50px;              
+    width: 70px;               
+    height: 70px;              
     border-radius: 50%;         /* Mantiene la imagen circular */
     position: absolute;          /* Permite mover la imagen */
     top: -370px;                  /* Ajusta la posición vertical */
@@ -575,6 +576,36 @@ body {
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
 }
 
+
+
+/*Diseño de foto linkedin*/
+.contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 5px;                /* Tamaño del contenedor */
+    height: 5px;               /* Tamaño del contenedor */
+    overflow: hidden;            /* Oculta cualquier contenido que sobresalga */
+}
+
+.contacto img {
+    width: 50%;                 /* La imagen ocupa todo el contenedor */
+    height: auto;                /* Mantiene la proporción de la imagen */
+     border-radius: 50%;         /* Mantiene la imagen circular */
+    position: absolute;          /* Permite mover la imagen */
+    border-radius: 50%;          /* Mantiene la imagen circular */
+    border: 5px double rgba(255, 0, 0, 0.5); /* Borde doble rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
+    cursor: pointer;             /* Cambia el cursor al pasar sobre la imagen */
+    top: -80PX;
+    left: 1200px; 
+}
+
+.contacto img:hover {
+    transform: translateY(-5px); /* Movimiento sutil hacia arriba */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
+}
 
 
 
