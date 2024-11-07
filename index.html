@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Jefferson</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet"> <!-- Agregar esta línea -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body >
+    
+
+    
+    
+    <div class="border"></div> <!-- Div para el borde -->
+    <div class="loading-container">
+        <div class="loading-bar" id="loadingBar"></div><!---Div para -->
+    </div>
+    
+    <div class="title-container" style="display: none;"><!--Div del nombre -->
+        <div class="title">
+            <h1></h1>
+            <div class="subtitle"></div> <!-- Div para el subtítulo del nombre  -->
+        </div>
+    </div>
+    
+    <div id="mapa"></div><!---Div del mapa de simulacion de ciber ataque -->
+    
+
+    <div id="diseño_de_terminal" class="terminal">
+        <div class="title-bar">
+            <div class="buttons">
+                <button class="button close" title="Cerrar">✖</button> <!-- Botón de cerrar -->
+                <button class="button minimize" title="Minimizar">−</button> <!-- Botón de minimizar -->
+                <button class="button maximize" title="Maximizar">□</button> <!-- Botón de maximizar -->
+            </div>
+            <div class="title">Sobre Mi</div>
+        </div>
+        <div id="output" class="linea"></div>
+    </div>
+
+    <div id="diseño_de_terminal2" class="terminal">
+        <div class="title-bar">
+            <div class="buttons2">
+                <button class="button close" title="Cerrar">✖</button> <!-- Botón de cerrar -->
+                <button class="button minimize" title="Minimizar">−</button> <!-- Botón de minimizar -->
+                <button class="button maximize" title="Maximizar">□</button> <!-- Botón de maximizar -->
+            </div>
+            <div class="title">Habilidades</div>
+        </div>
+        <div id="output2" class="linea"></div>
+    </div>
+
+    <div id="diseño_de_terminal3" class="terminal">
+        <div class="title-bar">
+            <div class="buttons3">
+                <button class="button close" title="Cerrar">✖</button> <!-- Botón de cerrar -->
+                <button class="button minimize" title="Minimizar">−</button> <!-- Botón de minimizar -->
+                <button class="button maximize" title="Maximizar">□</button> <!-- Botón de maximizar -->
+            </div>
+            <div class="title">Educación y Cursos</div>
+        </div>
+        <div id="output3" class="linea"></div>
+
+        
+
+
+    </div>
+    <div id="diseño_de_terminal4" class="terminal">
+        <div class="title-bar4">
+            <div class="buttons4">
+                <button class="button4 close" title="Cerrar">✖</button> <!-- Botón de cerrar -->
+                <button class="button4 minimize" title="Minimizar">−</button> <!-- Botón de minimizar -->
+                <button class="button4 maximize" title="Maximizar">□</button> <!-- Botón de maximizar -->
+            </div>
+            <div class="title4">Tecnologías</div>
+        </div>
+        <div id="output4" class="linea4">
+
+            <div class="image-row">
+                <div class="image-container">
+                    <img src="IMAGE/python.png" alt="Descripción de la imagen" class="imagen" />
+                    <p class="nombre-imagen">Python</p>
+                </div>
+                <div class="image-container">
+                    <img src="IMAGE/java.png" alt="Descripción de la imagen" class="imagen" />
+                    <p class="nombre-imagen">Java</p>
+                </div>
+                <div class="image-container">
+                    <img src="IMAGE/javascript.png" alt="Descripción de la imagen" class="imagen" />
+                    <p class="nombre-imagen">JavaScript</p>
+                </div>
+            </div>
+            <div class="image-row">
+                <div class="image-container">
+                    <img src="IMAGE/kotlin.png" alt="Descripción de la imagen" class="imagen" />
+                    <p class="nombre-imagen">Kotlin</p>
+                </div>
+                <div class="image-container">
+                    <img src="IMAGE/html.png" alt="Descripción de la imagen" class="imagen" />
+                    <p class="nombre-imagen">HTML</p>
+                </div>
+                <div class="image-container">
+                    <img src="IMAGE/css.png" alt="Descripción de la imagen" class="imagen" />
+                    <p class="nombre-imagen">CSS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <!---Div de foto de perfil -->
+    <div id="Perfil" class="foto_de_perfil" >
+        <img src="IMAGE/Avatar 2d.jpg" alt="Perfil">
+    </div>
+
+<!--Div del perfil de github-->
+    <div id="Github" class="foto_de_github">
+        <a href="https://github.com/jeffersonAG" target="_blank"> <!-- Cambia la URL por la dirección deseada -->
+
+        <img src="IMAGE/github.png" alt="Github">
+
+    </a>
+    
+
+<!--Div del CV -->
+<div id="CV" class="foto_de_cv">
+    <a href="CV/CV Español.pdf" target="_blank">
+    <img src="IMAGE/cv.png" alt="CV">
+</a>
+</div>
+
+<!--Div del CV -->
+<div id="Linkedin" class="Perfil_de_linkedin">
+    <a href="https://www.linkedin.com/in/jefferson-arias-gutierrez-a8995b221/" target="_blank">
+    <img src="IMAGE/linkedin.png" alt="Linkedin">
+</a>
+</div>
+
+<!--Div del CV -->
+<div id="correo" class="contacto">
+    <a href="https://www.linkedin.com/in/jefferson-arias-gutierrez-a8995b221/" target="_blank">
+    <img src="IMAGE/Informacion_de_contacto.png" alt="correo">
+</a>
+</div>
+
+    </div>
+
+    
+
+    
+   
+    
+
+    <!-- SVG oculto para definir el gradiente -->
+    <svg width="0" height="0">
+        <defs>
+            <linearGradient id="arc-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:rgba(255, 0, 0, 0.6);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgba(255, 0, 0, 0.6);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <script src="JS/titulo.js"></script> <!-- Asegúrate de que este archivo exista -->
+    <script src="JS/portafolio.js"></script>
+    <script src="JS/terminal.js"></script>
+    <script src="JS/perfil.js"></script>
+    <script src="JS/red_neuronal.js"></script>
+
+    
+    
+    
+</body>
+</html>
+
+
