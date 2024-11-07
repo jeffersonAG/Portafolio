@@ -120,4 +120,3 @@ function typeText3() {
 // Iniciar la animación de texto para la tercera terminal
 typeText3();
 
-

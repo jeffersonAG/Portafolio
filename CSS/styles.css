@@ -141,6 +141,7 @@ body {
     background-color: black;
     color: crimson;
     font-family: "Courier New", Courier, monospace;
+
     padding: 0; /* Sin padding para que la barra de título encaje */
     width: 980px;
     height: 400px;
@@ -391,9 +392,9 @@ body {
     left: 50px;
     background-color: black;
     color: crimson;
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Press Start 2P', cursive; 
     padding: 0;
-    width: 1370px;
+    width: 970px;
     height: 400px;
     border-radius: 5px;
     overflow-y: auto;
@@ -421,13 +422,12 @@ body {
 }
 
 .title-bar4 {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Color de fondo de la barra de título */
     display: flex;
     align-items: center;
     padding: 5px 10px;
     border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
+    border-top-right-radius: 5px;}
 
 .buttons4 {
     display: flex;
@@ -453,16 +453,39 @@ body {
     background-color: crimson;
 }
 
-.title4 {
-    flex-grow: 1;
-    color: crimson;
-    font-weight: bold;
+#linea4 {
+    display: flex;
+    flex-direction: column; /* Asegura que las filas estén en columna */
 }
 
-.linea4 {
-    margin: 10px;
-    line-height: 1.5;
+.image-row {
+    display: flex; /* Utiliza flexbox para cada fila */
+    justify-content: space-around; /* Espacio uniforme entre los elementos en la fila */
+    margin-bottom: 10px; /* Espacio entre filas */
 }
+
+.image-container {
+    flex: 0 0 30%; /* Cada imagen ocupará aproximadamente el 30% del ancho del contenedor */
+    margin: 10px; /* Espaciado entre las imágenes */
+    text-align: center; /* Centra el texto debajo de la imagen */
+}
+
+.imagen {
+    width: 100px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.nombre-imagen {
+    margin-top: 5px; /* Espacio entre la imagen y el nombre */
+    font-size: 14px; /* Tamaño de fuente del nombre */
+}
+
+
+
+
+
+
+
 
 /*Diseño de foto de perfil */
 .foto_de_perfil {
@@ -502,8 +525,8 @@ body {
 
 }
 .foto_de_github img{
-    width: 50px;               
-    height: 50px;              
+    width: 70px;               
+    height: 70px;              
     border-radius: 50%;         /* Mantiene la imagen circular */
     position: absolute;          /* Permite mover la imagen */
     top: -370px;                  /* Ajusta la posición vertical */
@@ -577,11 +600,34 @@ body {
 
 
 
+/*Diseño de foto linkedin*/
+.contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 5px;                /* Tamaño del contenedor */
+    height: 5px;               /* Tamaño del contenedor */
+    overflow: hidden;            /* Oculta cualquier contenido que sobresalga */
+}
 
+.contacto img {
+    width: 50%;                 /* La imagen ocupa todo el contenedor */
+    height: auto;                /* Mantiene la proporción de la imagen */
+     border-radius: 50%;         /* Mantiene la imagen circular */
+    position: absolute;          /* Permite mover la imagen */
+    border-radius: 50%;          /* Mantiene la imagen circular */
+    border: 5px double rgba(255, 0, 0, 0.5); /* Borde doble rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
+    cursor: pointer;             /* Cambia el cursor al pasar sobre la imagen */
+    top: -80PX;
+    left: 1200px; 
+}
 
-
-
-
+.contacto img:hover {
+    transform: translateY(-5px); /* Movimiento sutil hacia arriba */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
+}
 
 
 
