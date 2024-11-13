@@ -1,18 +1,14 @@
 // Función para la primera terminal
 const output1 = document.getElementById('output');
 const texts1 = [
-    'Estudiante de Ingeniería en Computadores. \n' +
-    'Trabajador versátil con experiencia en:\n' +
-    '- Desarrollo de aplicaciones móviles\n' +
-    '- Creación de sitios web\n' +
-    '- Análisis de amenazas cibernéticas\n' +
-    '- Reparación de hardware\n' +
-    'Enfocado en soluciones tecnológicas eficaces,\n' +
-    'aplicando mi conocimiento interdisciplinario.\n' +
-    'Apasionado por la innovación y siempre buscando\n' +
-    'oportunidades para aplicar mis habilidades\n' +
-    'en proyectos desafiantes.'
+    'Soy estudiante de Ingeniería en Computación con experiencia en desarrollo back-end, cuento con experiencia en lenguajes como Python, Java y Kotlin, así como tecnologías web como HTML, CSS y JavaScript.',
+    'Cuento con sólidos conocimientos en manejo de bases de datos con MySQL, SQL y Oracle, y tengo una profunda pasión por la ciberseguridad.',
+    'Me motiva el aprendizaje constante y disfruto compartir mis conocimientos con quienes buscan comprender temas complejos. Con actitud colaborativa,',
+    'me adapto rápidamente a diferentes dinámicas de trabajo y mantengo la eficiencia aún bajo presión.',
+    'Tengo experiencia en procesos de auditoría de ciberseguridad, así como en la administración de sistemas operativos, incluyendo distribuciones Linux Debian como Kali Linux, así como Windows.',
+    'Mi enfoque siempre está en entregar soluciones efectivas y de alto impacto, tanto en desarrollo como en seguridad.'
   ];
+  
   
 
 
