@@ -1,4 +1,8 @@
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Estilo del cuerpo */
 body {
     background-color: #000; /* Fondo negro */
@@ -770,8 +774,8 @@ body {
     height: 70px;              
     border-radius: 50%;         /* Mantiene la imagen circular */
     position: absolute;          /* Permite mover la imagen */
-    top: -370px;                  /* Ajusta la posición vertical */
-    left: 1200px;                 /* Ajusta la posición horizontal */
+    top: -432px;                  /* Ajusta la posición vertical */
+    left: 200px;                 /* Ajusta la posición horizontal */
     border: 5px double rgba(255, 0, 0, 0.5);      /* Borde doble rojo */
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
     cursor: pointer;            /* Cambia el cursor al pasar sobre la imagen */
@@ -802,8 +806,8 @@ body {
     border: 5px double rgba(255, 0, 0, 0.5); /* Borde doble rojo */
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
     cursor: pointer;             /* Cambia el cursor al pasar sobre la imagen */
-    top: -280PX;
-    left: 1200px; 
+    top: -432PX;
+    left: 300px; 
 }
 
 .foto_de_cv img:hover {
@@ -830,18 +834,49 @@ body {
     border: 5px double rgba(255, 0, 0, 0.5); /* Borde doble rojo */
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
     cursor: pointer;             /* Cambia el cursor al pasar sobre la imagen */
-    top: -180PX;
-    left: 1200px; 
+    top: -432PX;
+    left: 400px; 
 }
 
 .Perfil_de_linkedin img:hover {
+    transform: translateY(-5px); /* Movimiento sutil hacia arriba */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
+
+}
+/*Diseño de traductor*/
+.Pag_traductor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 5px;                /* Tamaño del contenedor */
+    height: 5px;               /* Tamaño del contenedor */
+    overflow: hidden;            /* Oculta cualquier contenido que sobresalga */
+}
+
+.Pag_traductor img {
+    width: 50%;                 /* La imagen ocupa todo el contenedor */
+    height: auto;                /* Mantiene la proporción de la imagen */
+     border-radius: 50%;         /* Mantiene la imagen circular */
+    position: absolute;          /* Permite mover la imagen */
+    border-radius: 50%;          /* Mantiene la imagen circular */
+    border: 5px double rgba(255, 0, 0, 0.5); /* Borde doble rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
+    cursor: pointer;             /* Cambia el cursor al pasar sobre la imagen */
+    top: -432PX;
+    left: 900px; 
+}
+
+.Pag_traductor img:hover {
     transform: translateY(-5px); /* Movimiento sutil hacia arriba */
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
 }
 
 
 
-/*Diseño de foto linkedin*/
+
+
+/*Diseño de foto contacto*/
 .contacto {
     display: flex;
     justify-content: center;
@@ -861,16 +896,107 @@ body {
     border: 5px double rgba(255, 0, 0, 0.5); /* Borde doble rojo */
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Sombra para el efecto de terminal */
     cursor: pointer;             /* Cambia el cursor al pasar sobre la imagen */
-    top: -80PX;
-    left: 1200px; 
+    top: -432PX;
+    left: 100px; 
 }
 
 .contacto img:hover {
     transform: translateY(-5px); /* Movimiento sutil hacia arriba */
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra verde sutil */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); 
 }
 
 
+/* General styles for the terminal aesthetic */
+body {
+    font-family: 'Press Start 2P', cursive; /* Fuente tipo consola */
+    background-color: black; /* Fondo negro */
+    color: gray; /* Texto en crimson */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contact form container */
+#contacts {
+    position: absolute; /* Posicionamiento absoluto */
+    width: 400px;
+    height: 500px;
+    margin: 0;
+    padding: 20px;
+    border: 2px solid rgba(255, 0, 0, 0.6); /* Borde crimson */
+    border-radius: 10px;
+    background-color: black; /* Negro intenso */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* Efecto de brillo crimson */
+    top: 2375px; /* Posicionamiento vertical */
+    left: 635px; /* Posicionamiento horizontal */
+}
+
+
+
+/* Form heading */
+#contacts h2 {
+    text-align: center;
+    color: crimson;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(255, 0, 0, 0.6);
+    padding-bottom: 10px;
+}
+
+/* Form elements */
+#hacker-form label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: crimson; /* Texto crimson */
+}
+
+#hacker-form input, #hacker-form textarea {
+    width: 100%;
+    padding: 12px; 
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: black; 
+    color: gray; /* Texto gris */
+    border: 1px solid rgba(255, 0, 0, 0.6); 
+    border-radius: 5px; 
+    font-size: 1em; /* Tamaño del texto */
+    line-height: 1.5; 
+    outline: none; 
+    box-sizing: border-box; 
+}
+
+/* Placeholder styles */
+#hacker-form input::placeholder, #hacker-form textarea::placeholder {
+    color: gray; /* Placeholder crimson más claro */
+    font-style: italic;
+}
+
+/* Button styles */
+#hacker-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color:  black; /* Fondo crimson */
+    color: crimson; /* Texto crimson*/
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Brillo crimson */
+    transition: all 0.3s ease-in-out;
+}
+
+#hacker-form button:hover {
+    background-color: #444; /* Rojo oscuro */
+    color: black; /* Texto crimson */
+}
+
+/* Textarea height */
+#hacker-form textarea {
+    height: 100px;
+    resize: none;
+}
 
 /* Contenedor del mapa */
 #mapa {
@@ -881,6 +1007,7 @@ body {
     margin-left: -300px; /* Ajusta este valor para mover más a la izquierda */
 
 }
+
 
 /* Sombra en el globo */
 circle {
@@ -961,3 +1088,10 @@ circle {
     }
 }
 
+.text_projects {
+    font-family: 'Press Start 2P', cursive;
+    color: crimson;
+    position: relative;  /* Añadido para activar el posicionamiento */
+    top: 1200px;
+    left: -50px;
+}

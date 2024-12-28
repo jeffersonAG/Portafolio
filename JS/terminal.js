@@ -41,7 +41,7 @@ const output2 = document.getElementById('output2');
 const texts2 = [
     'Trabajo en Equipo',
     'Trabajo Bajo Presión',
-    'Ética Hacke',
+    'Ética Hacker',
     'Colaboración Interdisciplinaria',
     'Empatía Tecnológica',
     'Resiliencia Digital',
