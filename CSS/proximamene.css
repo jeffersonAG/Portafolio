@@ -1,0 +1,47 @@
+/* Configuración general */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: crimson; /* Verde neón */
+}
+
+/* Contenedor principal */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px; /* Espacio entre elementos */
+    width: 90%;
+    max-width: 800px;
+    background: black;
+    border: 2px solid crimson; /* Borde verde hacker */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+/* Estilo para la explicación del proyecto */
+.explicacion-proyecto {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    animation: typing 2s steps(40, end) 1; /* Efecto de escritura */
+    overflow: hidden; /* Para el efecto de texto */
+    white-space: nowrap; /* Texto en una línea */
+    border: none;
+}
+
+/* Efecto de escritura */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
