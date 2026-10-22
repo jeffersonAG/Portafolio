@@ -1197,3 +1197,167 @@ h1, h2, h3, p { margin-top: 0; }
 
 .form-status.success { color: var(--green); }
 .form-status.error { color: var(--red-bright); }
+
+
+/* === Cyber Globe V2: global network / threat simulation === */
+.cyber-globe::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 54%, rgba(255, 32, 63, .08) 70%, transparent 73%),
+    conic-gradient(from 0deg, transparent 0deg 318deg, rgba(255, 45, 73, .13) 342deg, transparent 360deg);
+  animation: radarSweep 7s linear infinite;
+  opacity: .75;
+}
+
+@keyframes radarSweep {
+  to { transform: rotate(360deg); }
+}
+
+.globe-red-halo {
+  fill: rgba(255, 32, 63, .035);
+  stroke: rgba(255, 32, 63, .12);
+  stroke-width: 1;
+  filter: drop-shadow(0 0 30px rgba(255, 32, 63, .2));
+}
+
+.globe-base-arc {
+  fill: none;
+  stroke: rgba(255, 32, 63, .16);
+  stroke-width: .85;
+  stroke-dasharray: 2 7;
+}
+
+.globe-attack-arc {
+  fill: none;
+  stroke-width: 1.25;
+  stroke-dasharray: 3 5;
+  filter: drop-shadow(0 0 5px rgba(255, 32, 63, .55));
+  opacity: .82;
+}
+
+.globe-attack-arc.severity-low {
+  stroke: rgba(255, 72, 96, .42);
+}
+
+.globe-attack-arc.severity-medium {
+  stroke: rgba(255, 48, 78, .78);
+}
+
+.globe-attack-arc.severity-high {
+  stroke: rgba(255, 238, 238, .92);
+  stroke-width: 1.55;
+  filter: drop-shadow(0 0 7px rgba(255, 32, 63, .9));
+}
+
+.globe-packet {
+  stroke-width: 1.1;
+}
+
+.globe-packet.severity-low {
+  fill: #ff4964;
+  stroke: rgba(255,255,255,.35);
+}
+
+.globe-packet.severity-medium {
+  fill: #ff2447;
+  stroke: #fff;
+}
+
+.globe-packet.severity-high {
+  fill: #fff;
+  stroke: #ff2447;
+  stroke-width: 1.8;
+}
+
+.globe-impact {
+  fill: none;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 7px rgba(255, 32, 63, .65));
+}
+
+.globe-impact.severity-low {
+  stroke: rgba(255, 72, 96, .5);
+}
+
+.globe-impact.severity-medium {
+  stroke: rgba(255, 45, 72, .82);
+}
+
+.globe-impact.severity-high {
+  stroke: rgba(255,255,255,.95);
+  stroke-width: 2;
+}
+
+.hub .hub-core {
+  fill: #ff3654;
+  stroke: rgba(255,255,255,.35);
+  stroke-width: .8;
+  filter: drop-shadow(0 0 6px rgba(255, 32, 63, .78));
+}
+
+.hub.primary .hub-core {
+  fill: #fff;
+  stroke: #ff203f;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 11px rgba(255, 32, 63, 1));
+}
+
+.hub .hub-pulse {
+  fill: rgba(255, 32, 63, .07);
+  stroke: rgba(255, 32, 63, .36);
+  stroke-width: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hubPulse 2.3s ease-in-out infinite;
+}
+
+.hub.primary .hub-pulse {
+  fill: rgba(255, 32, 63, .12);
+  stroke: rgba(255, 32, 63, .75);
+}
+
+@keyframes hubPulse {
+  0%, 100% { transform: scale(.72); opacity: .9; }
+  50% { transform: scale(1.3); opacity: .22; }
+}
+
+.globe-telemetry {
+  pointer-events: none;
+}
+
+.telemetry-line {
+  fill: rgba(197, 198, 206, .5);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.telemetry-bottom {
+  fill: rgba(255, 54, 84, .55);
+}
+
+.threat-level {
+  color: #ff455f !important;
+  text-shadow: 0 0 8px rgba(255, 32, 63, .5);
+}
+
+.threat-pulse {
+  animation: threatPulse 1.45s ease-in-out infinite;
+}
+
+@keyframes threatPulse {
+  50% { opacity: .45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyber-globe::before,
+  .hub .hub-pulse,
+  .threat-pulse {
+    animation: none !important;
+  }
+}
