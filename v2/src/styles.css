@@ -368,15 +368,19 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 .hero-visual {
+  height: 540px;
   min-height: 540px;
   overflow: hidden;
   align-self: start;
+  contain: layout size paint;
 }
 
 .cyber-globe {
   width: 100%;
-  height: 100%;
-  min-height: 540px;
+  height: 540px;
+  min-height: 0;
+  overflow: hidden;
+  contain: layout size paint;
 }
 
 .cyber-globe svg {
@@ -922,11 +926,15 @@ h1, h2, h3, p { margin-top: 0; }
   }
 
   .hero-visual {
+    height: 460px;
     min-height: 460px;
     order: -1;
   }
 
-  .cyber-globe { min-height: 460px; }
+  .cyber-globe {
+    height: 460px;
+    min-height: 0;
+  }
 
   .hero-copy {
     padding-top: 0;
@@ -1005,10 +1013,14 @@ h1, h2, h3, p { margin-top: 0; }
   }
 
   .hero-visual {
+    height: 320px;
     min-height: 320px;
   }
 
-  .cyber-globe { min-height: 320px; }
+  .cyber-globe {
+    height: 320px;
+    min-height: 0;
+  }
 
   .globe-overlay {
     display: none;
