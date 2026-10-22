@@ -9,7 +9,6 @@ import {
   profile,
   projects,
   skills,
-  stats,
   technologies,
 } from './data/portfolio.js';
 
@@ -77,12 +76,19 @@ export default function App() {
           <div className="hero-visual">
             <CyberGlobe />
             <div className="globe-overlay overlay-top">
-              <strong>&gt;&gt; CONECTANDO IDEAS</strong>
-              {['Desarrollo', 'Infraestructura', 'Redes', 'Ciberseguridad', 'Soluciones'].map(x => <span key={x}>&gt; {x}</span>)}
+              <strong>&gt;&gt; LIVE THREAT FEED</strong>
+              <span>&gt; PORT SCAN <b>DETECTED</b></span>
+              <span>&gt; RECON PROBE <b>ACTIVE</b></span>
+              <span>&gt; DNS BURST <b>TRACKING</b></span>
+              <span>&gt; AUTH ATTEMPT <b>BLOCKED</b></span>
+              <span>&gt; GLOBAL MESH <b>ONLINE</b></span>
             </div>
             <div className="globe-overlay overlay-bottom">
-              <strong>&gt;&gt; ESTADÍSTICAS</strong>
-              {stats.map(([label, value]) => <span key={label}>&gt; {label}: <b>{value}</b></span>)}
+              <strong>&gt;&gt; NETWORK STATUS</strong>
+              <span>&gt; Active Nodes: <b>13</b></span>
+              <span>&gt; Live Routes: <b>18</b></span>
+              <span>&gt; Region Focus: <b>LATAM</b></span>
+              <span className="threat-pulse">&gt; Threat Level: <b className="threat-level">HIGH</b></span>
               <span>&gt; Estado: Online <i className="online-dot" /></span>
             </div>
           </div>
