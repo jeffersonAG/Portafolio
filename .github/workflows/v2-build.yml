@@ -56,4 +56,5 @@ jobs:
             exit 0
           fi
           git commit -m "preview: refresh Portfolio V2 build"
+          git pull --rebase origin ${{ github.head_ref || 'portfolio-v2' }}
           git push origin HEAD:${{ github.head_ref || 'portfolio-v2' }}
