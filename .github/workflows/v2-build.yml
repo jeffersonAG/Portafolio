@@ -9,17 +9,16 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: v2
     steps:
-      - name: Checkout
+      - name: Checkout V2 branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || 'portfolio-v2' }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -27,9 +26,11 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
+        working-directory: v2
         run: npm install
 
       - name: Build V2
+        working-directory: v2
         run: npm run build
 
       - name: Upload build artifact
@@ -38,3 +39,21 @@ jobs:
           name: portfolio-v2-dist
           path: v2/dist
           if-no-files-found: error
+
+      - name: Prepare browser preview
+        run: |
+          rm -rf preview
+          cp -R v2/dist preview
+          sed -i 's#"/Portafolio/assets/#"./assets/#g' preview/index.html
+
+      - name: Commit preview to V2 branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add preview
+          if git diff --cached --quiet; then
+            echo "Preview is already up to date."
+            exit 0
+          fi
+          git commit -m "preview: refresh Portfolio V2 build"
+          git push origin HEAD:${{ github.head_ref || 'portfolio-v2' }}
