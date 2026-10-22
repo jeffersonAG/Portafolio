@@ -54,7 +54,7 @@ export default function CyberGlobe() {
       function draw(rotation = [-18, -10]) {
         const box = host.getBoundingClientRect();
         const width = Math.max(280, box.width);
-        const height = Math.max(300, box.height);
+        const height = Math.max(300, host.clientHeight || 540);
         const size = Math.min(width, height);
 
         svg.attr('viewBox', `0 0 ${width} ${height}`);
@@ -97,7 +97,14 @@ export default function CyberGlobe() {
       draw();
       if (!prefersReducedMotion) frame = requestAnimationFrame(tick);
 
-      const observer = new ResizeObserver(() => draw());
+      let lastWidth = Math.round(host.getBoundingClientRect().width);
+      const observer = new ResizeObserver((entries) => {
+        const nextWidth = Math.round(entries[0]?.contentRect?.width || host.clientWidth);
+        if (nextWidth !== lastWidth) {
+          lastWidth = nextWidth;
+          draw();
+        }
+      });
       observer.observe(host);
       host._observer = observer;
     };
