@@ -30,7 +30,7 @@ export const technologies = [
   { name: 'MySQL', icon: assetBase + '/MySQL.png', group: 'Datos' },
   { name: 'Linux', icon: assetBase + '/kali_linux.png', group: 'Sistemas' },
   { name: 'Windows', icon: assetBase + '/Windows.png', group: 'Sistemas' },
-  { name: 'Cisco', icon: assetBase + '/cisco.png', group: 'Redes' },
+  { name: 'Cisco', icon: null, fallback: 'CI', group: 'Redes' },
   { name: 'React', icon: assetBase + '/react.png', group: 'Desarrollo' },
   { name: 'Django', icon: assetBase + '/Django.png', group: 'Desarrollo' },
 ];
