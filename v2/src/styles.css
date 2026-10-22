@@ -142,7 +142,7 @@ main {
   min-height: calc(100vh - 105px);
   display: grid;
   grid-template-columns: minmax(360px, .92fr) minmax(520px, 1.55fr);
-  grid-template-rows: auto auto;
+  grid-template-rows: 540px auto;
   align-items: start;
   align-content: start;
   gap: 16px;
@@ -174,6 +174,16 @@ main {
 .hero-copy,
 .hero-visual,
 .tech-strip { position: relative; z-index: 2; }
+
+.hero-copy,
+.hero-visual {
+  grid-row: 1;
+  height: 540px;
+}
+
+.tech-strip {
+  grid-row: 2;
+}
 
 .hero-copy {
   display: flex;
@@ -372,21 +382,25 @@ h1, h2, h3, p { margin-top: 0; }
   min-height: 540px;
   overflow: hidden;
   align-self: start;
-  contain: layout size paint;
+  contain: strict;
 }
 
 .cyber-globe {
+  position: relative;
   width: 100%;
   height: 540px;
   min-height: 0;
   overflow: hidden;
-  contain: layout size paint;
+  contain: strict;
 }
 
 .cyber-globe svg {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .globe-sphere {
@@ -923,6 +937,20 @@ h1, h2, h3, p { margin-top: 0; }
 @media (max-width: 1180px) {
   .hero {
     grid-template-columns: 1fr;
+    grid-template-rows: 460px auto auto;
+  }
+
+  .hero-visual {
+    grid-row: 1;
+  }
+
+  .hero-copy {
+    grid-row: 2;
+    height: auto;
+  }
+
+  .tech-strip {
+    grid-row: 3;
   }
 
   .hero-visual {
@@ -1007,6 +1035,7 @@ h1, h2, h3, p { margin-top: 0; }
   .brand { font-size: .8rem; }
 
   .hero {
+    grid-template-rows: 320px auto auto;
     min-height: auto;
     padding: 10px;
     gap: 10px;
