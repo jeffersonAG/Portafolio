@@ -28,6 +28,7 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const groups = useMemo(() => ['Todos', ...new Set(technologies.map(t => t.group))], []);
   const [filter, setFilter] = useState('Todos');
+  const [contactStatus, setContactStatus] = useState('idle');
   const visibleTech = filter === 'Todos' ? technologies : technologies.filter(t => t.group === filter);
 
   const go = (id) => {
@@ -91,7 +92,7 @@ export default function App() {
             <div className="tech-strip-items">
               {technologies.slice(0, 10).map(tech => (
                 <div className="mini-tech" key={tech.name}>
-                  <img src={tech.icon} alt="" />
+                  {tech.icon ? <img src={tech.icon} alt="" /> : <span className="tech-fallback">{tech.fallback || tech.name.slice(0, 2).toUpperCase()}</span>}
                   <span>{tech.name}</span>
                 </div>
               ))}
@@ -144,7 +145,7 @@ export default function App() {
             <div className="tech-grid">
               {visibleTech.map(tech => (
                 <div className="tech-card" key={tech.name}>
-                  <img src={tech.icon} alt="" />
+                  {tech.icon ? <img src={tech.icon} alt="" /> : <span className="tech-fallback large">{tech.fallback || tech.name.slice(0, 2).toUpperCase()}</span>}
                   <strong>{tech.name}</strong>
                   <small>{tech.group}</small>
                 </div>
@@ -194,11 +195,54 @@ export default function App() {
           <div className="section-label">SECCIÓN: CONTACTO</div>
           <TerminalWindow command="./enviar_mensaje.sh">
             <div className="contact-grid">
-              <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
-                <label>Nombre<input placeholder="Tu nombre" /></label>
-                <label>Correo<input type="email" placeholder="correo@ejemplo.com" /></label>
-                <label>Mensaje<textarea placeholder="Cuéntame sobre tu proyecto..." /></label>
-                <button className="terminal-button" type="submit">&gt; ENVIAR MENSAJE</button>
+              <form
+                className="contact-form"
+                onSubmit={async (event) => {
+                  event.preventDefault();
+                  if (contactStatus === 'sending') return;
+
+                  const form = event.currentTarget;
+                  const formData = new FormData(form);
+                  if (formData.get('website')) return;
+
+                  setContactStatus('sending');
+
+                  try {
+                    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        service_id: 'service_z9vbgm4',
+                        template_id: 'template_1s6v73e',
+                        user_id: '9IiEnFsf94JAoczav',
+                        template_params: {
+                          name: formData.get('name'),
+                          email: formData.get('email'),
+                          message: formData.get('message'),
+                          subject: 'Solicitud de contacto desde Portfolio V2',
+                        },
+                      }),
+                    });
+
+                    if (!response.ok) throw new Error('EmailJS request failed');
+                    form.reset();
+                    setContactStatus('success');
+                  } catch {
+                    setContactStatus('error');
+                  }
+                }}
+              >
+                <label>Nombre<input name="name" placeholder="Tu nombre" required /></label>
+                <label>Correo<input name="email" type="email" placeholder="correo@ejemplo.com" required /></label>
+                <label>Mensaje<textarea name="message" placeholder="Cuéntame sobre tu proyecto..." required /></label>
+                <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex="-1" autoComplete="off" /></label>
+                <button className="terminal-button" type="submit" disabled={contactStatus === 'sending'}>
+                  {contactStatus === 'sending' ? '> TRANSMITIENDO...' : '> ENVIAR MENSAJE'}
+                </button>
+                <div className={`form-status ${contactStatus}`} aria-live="polite">
+                  {contactStatus === 'success' && '> MENSAJE ENTREGADO CORRECTAMENTE'}
+                  {contactStatus === 'error' && '> ERROR DE TRANSMISIÓN. INTENTA NUEVAMENTE.'}
+                </div>
               </form>
               <div className="contact-links">
                 <p>&gt; OTRAS FORMAS DE CONTACTO</p>
