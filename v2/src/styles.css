@@ -142,7 +142,7 @@ main {
   min-height: calc(100vh - 105px);
   display: grid;
   grid-template-columns: minmax(360px, .92fr) minmax(520px, 1.55fr);
-  grid-template-rows: 540px auto;
+  grid-template-rows: minmax(640px, auto) auto;
   align-items: start;
   align-content: start;
   gap: 16px;
@@ -178,6 +178,14 @@ main {
 .hero-copy,
 .hero-visual {
   grid-row: 1;
+}
+
+.hero-copy {
+  min-height: 640px;
+  height: auto;
+}
+
+.hero-visual {
   height: 540px;
 }
 
