@@ -97,16 +97,13 @@ export default function CyberGlobe() {
       draw();
       if (!prefersReducedMotion) frame = requestAnimationFrame(tick);
 
-      let lastWidth = Math.round(host.getBoundingClientRect().width);
-      const observer = new ResizeObserver((entries) => {
-        const nextWidth = Math.round(entries[0]?.contentRect?.width || host.clientWidth);
-        if (nextWidth !== lastWidth) {
-          lastWidth = nextWidth;
-          draw();
-        }
-      });
-      observer.observe(host);
-      host._observer = observer;
+      let resizeFrame;
+      const handleResize = () => {
+        cancelAnimationFrame(resizeFrame);
+        resizeFrame = requestAnimationFrame(() => draw());
+      };
+      window.addEventListener('resize', handleResize, { passive: true });
+      host._handleResize = handleResize;
     };
 
     render().catch(() => {
@@ -116,7 +113,7 @@ export default function CyberGlobe() {
     return () => {
       disposed = true;
       if (frame) cancelAnimationFrame(frame);
-      if (host._observer) host._observer.disconnect();
+      if (host._handleResize) window.removeEventListener('resize', host._handleResize);
       d3.select(host).selectAll('*').remove();
     };
   }, []);
