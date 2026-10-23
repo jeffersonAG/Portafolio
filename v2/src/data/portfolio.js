@@ -51,6 +51,11 @@ export const experience = [
     description: 'Compañía PalmaTica S.A. Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa.',
   },
   {
+    period: '2025',
+    title: 'Infraestructura de red para la implementación del ERP Oracle',
+    description: 'Compañía PalmaTica S.A. Levantamiento y mapeo de la infraestructura de red de una división integrada por dos zonas francas y la empresa nacional. Elaboración de diagramas de red y requerimientos técnicos para la migración a switches y puntos de acceso Fortinet. Solicitud de cotizaciones a proveedores para la licitación, coordinación de trabajos y realización de pruebas técnicas con el proveedor seleccionado en las zonas involucradas.',
+  },
+  {
     period: 'PROYECTOS',
     title: 'Desarrollo de software',
     description: 'Aplicaciones, automatización, interfaces web, bases de datos y proyectos personales.',
