@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import TerminalWindow from './components/TerminalWindow.jsx';
 import CyberGlobe from './components/CyberGlobe.jsx';
 import ProjectCard from './components/ProjectCard.jsx';
+import { sendContactMessage } from './services/contact.js';
 import {
   certifications,
   education,
@@ -28,6 +29,8 @@ export default function App() {
   const groups = useMemo(() => ['Todos', ...new Set(technologies.map(t => t.group))], []);
   const [filter, setFilter] = useState('Todos');
   const [contactStatus, setContactStatus] = useState('idle');
+  const [contactError, setContactError] = useState(null);
+  const contactInFlight = useRef(false);
   const visibleTech = filter === 'Todos' ? technologies : technologies.filter(t => t.group === filter);
 
   const go = (id) => {
@@ -205,36 +208,36 @@ export default function App() {
                 className="contact-form"
                 onSubmit={async (event) => {
                   event.preventDefault();
-                  if (contactStatus === 'sending') return;
+                  if (contactInFlight.current) return;
 
                   const form = event.currentTarget;
                   const formData = new FormData(form);
-                  if (formData.get('website')) return;
+                  if (formData.get('website')) {
+                    setContactError({
+                      message: 'No se pudo validar el formulario. Recarga la página e inténtalo de nuevo.',
+                      details: 'El campo de protección website contiene un valor. Revisa si el navegador lo autocompletó.',
+                    });
+                    setContactStatus('error');
+                    return;
+                  }
 
+                  contactInFlight.current = true;
+                  setContactError(null);
                   setContactStatus('sending');
 
                   try {
-                    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                        service_id: 'service_z9vbgm4',
-                        template_id: 'template_1s6v73e',
-                        user_id: '9IiEnFsf94JAoczav',
-                        template_params: {
-                          name: formData.get('name'),
-                          email: formData.get('email'),
-                          message: formData.get('message'),
-                          subject: 'Solicitud de contacto desde Portfolio V2',
-                        },
-                      }),
+                    await sendContactMessage({
+                      name: formData.get('name'),
+                      email: formData.get('email'),
+                      message: formData.get('message'),
                     });
-
-                    if (!response.ok) throw new Error('EmailJS request failed');
                     form.reset();
                     setContactStatus('success');
-                  } catch {
+                  } catch (error) {
+                    setContactError(error);
                     setContactStatus('error');
+                  } finally {
+                    contactInFlight.current = false;
                   }
                 }}
               >
@@ -246,9 +249,16 @@ export default function App() {
                   {contactStatus === 'sending' ? '> TRANSMITIENDO...' : '> ENVIAR MENSAJE'}
                 </button>
                 <div className={`form-status ${contactStatus}`} aria-live="polite">
-                  {contactStatus === 'success' && '> MENSAJE ENTREGADO CORRECTAMENTE'}
-                  {contactStatus === 'error' && '> ERROR DE TRANSMISIÓN. INTENTA NUEVAMENTE.'}
+                  {contactStatus === 'success' && '> MENSAJE ENVIADO. GRACIAS POR CONTACTARME.'}
+                  {contactStatus === 'error' && `> ${contactError?.message || 'No se pudo enviar el mensaje.'}`}
                 </div>
+                {contactStatus === 'error' && contactError?.details && (
+                  <details className="contact-error-details">
+                    <summary>Ver detalle del error</summary>
+                    {contactError.status > 0 && <p>EmailJS HTTP {contactError.status}</p>}
+                    <p>{contactError.details}</p>
+                  </details>
+                )}
               </form>
               <div className="contact-links">
                 <p>&gt; OTRAS FORMAS DE CONTACTO</p>

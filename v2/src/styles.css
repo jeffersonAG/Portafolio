@@ -1198,6 +1198,16 @@ h1, h2, h3, p { margin-top: 0; }
 .form-status.success { color: var(--green); }
 .form-status.error { color: var(--red-bright); }
 
+.contact-error-details {
+  color: #b2b3ba;
+  font-size: .78rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.contact-error-details summary { cursor: pointer; }
+.contact-error-details p { margin: 8px 0 0; }
+
 
 /* === Cyber Globe V2: global network / threat simulation === */
 .cyber-globe::before {
