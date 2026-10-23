@@ -46,9 +46,9 @@ export const skills = [
 
 export const experience = [
   {
-    period: 'ACTUALIDAD',
-    title: 'Soporte técnico e infraestructura',
-    description: 'Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa.',
+    period: '2025 — ACTUALIDAD',
+    title: 'Soporte técnico T.I.',
+    description: 'Compañía PalmaTica S.A. Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa.',
   },
   {
     period: 'PROYECTOS',
@@ -64,9 +64,14 @@ export const experience = [
 
 export const education = [
   {
-    period: 'FORMACIÓN UNIVERSITARIA',
-    title: 'Ingeniería y sistemas de información',
-    description: 'Formación académica orientada al desarrollo, la lógica computacional y los sistemas.',
+    period: '2021 — 2024',
+    title: 'Estudiante de Ingeniería en Computadores',
+    description: 'Tecnológico de Costa Rica (TEC).',
+  },
+  {
+    period: '2025 — ACTUALIDAD',
+    title: 'Estudiante de Informática',
+    description: 'Universidad Estatal a Distancia (UNED).',
   },
   {
     period: 'FORMACIÓN TÉCNICA',
