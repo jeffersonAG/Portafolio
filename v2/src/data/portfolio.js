@@ -48,7 +48,7 @@ export const experience = [
   {
     period: '2025 — ACTUALIDAD',
     title: 'Soporte técnico T.I.',
-    description: 'Compañía PalmaTica S.A. Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa. Participación en 2025 en el proyecto de infraestructura de red para la implementación del ERP Oracle.',
+    description: 'Palma Tica S.A. — División Coto. Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa. Participación en 2025 en el proyecto de infraestructura de red para la implementación del ERP Oracle.',
   },
   {
     period: 'PROYECTOS',
@@ -96,16 +96,24 @@ export const projects = [
     slug: 'infraestructura-erp-oracle',
     name: 'INFRAESTRUCTURA DE RED PARA ERP ORACLE',
     status: 'EMPRESARIAL',
-    description: 'Compañía PalmaTica S.A. · 2025. Infraestructura de red para apoyar la implementación del ERP Oracle en dos zonas francas y la empresa nacional.',
+    description: 'Grupo Agroindustrial Numar · 2025. Infraestructura de red para apoyar la implementación del ERP Oracle en dos zonas francas y una empresa nacional.',
     stack: ['Fortinet', 'Switches', 'Wi-Fi'],
     image: null,
     placeholderSymbol: 'NET',
-    placeholderLabel: 'PALMATICA // 2025',
+    placeholderLabel: 'NUMAR // 2025',
     github: null,
     details: [
       {
         title: 'Alcance',
-        text: 'Preparación de la infraestructura de red de una división integrada por dos zonas francas y la empresa nacional, como parte del proyecto de implementación del ERP Oracle durante 2025.',
+        text: 'Preparación de la infraestructura de red para apoyar la implementación del ERP Oracle durante 2025 en tres empresas del Grupo Agroindustrial Numar: dos zonas francas y una empresa nacional.',
+      },
+      {
+        title: 'Empresas y sedes',
+        items: [
+          'Zona franca: Compañía Industrial Aceitera Coto Cincuenta y Cuatro S.A. (sede Coto 54).',
+          'Zona franca: Compact Seeds & Clones S.A.',
+          'Empresa nacional: Palma Tica S.A. (División Coto).',
+        ],
       },
       {
         title: 'Mi participación',
