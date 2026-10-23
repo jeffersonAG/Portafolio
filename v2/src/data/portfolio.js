@@ -98,7 +98,7 @@ export const projects = [
     status: 'EMPRESARIAL',
     description: 'Grupo Agroindustrial Numar · 2025. Infraestructura de red para apoyar la implementación del ERP Oracle en dos zonas francas y una empresa nacional.',
     stack: ['Fortinet', 'Switches', 'Wi-Fi'],
-    image: null,
+    image: 'https://raw.githubusercontent.com/jeffersonAG/Portafolio/portfolio-v2/IMAGE/ORACLE.png',
     placeholderSymbol: 'NET',
     placeholderLabel: 'NUMAR // 2025',
     github: null,
