@@ -716,6 +716,12 @@ h1, h2, h3, p { margin-top: 0; }
   transition: transform .45s ease, filter .3s ease;
 }
 
+.project-media img[src$="ORACLE.png"] {
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
+}
+
 .project-card:hover .project-media img {
   transform: scale(1.035);
   filter: saturate(1) contrast(1.08);
