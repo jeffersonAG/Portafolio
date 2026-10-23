@@ -283,7 +283,7 @@ export default function App() {
               <button className="modal-close" onClick={() => setSelectedProject(null)} aria-label="Cerrar detalle">×</button>
               <div className="project-detail">
                 <div>
-                  {selectedProject.image ? <img src={selectedProject.image} alt={selectedProject.name} /> : <div className="project-placeholder large">&lt;/&gt;</div>}
+                  {selectedProject.image ? <img src={selectedProject.image} alt={selectedProject.name} /> : <div className="project-placeholder large">{selectedProject.placeholderSymbol || '</>'}</div>}
                 </div>
                 <div>
                   <div className="project-heading">
@@ -291,15 +291,29 @@ export default function App() {
                     <span className="project-status done">{selectedProject.status}</span>
                   </div>
                   <p>{selectedProject.description}</p>
-                  <div className="detail-list">
-                    <span>&gt; Problema</span>
-                    <span>&gt; Objetivo</span>
-                    <span>&gt; Mi participación</span>
-                    <span>&gt; Tecnologías</span>
-                    <span>&gt; Arquitectura</span>
-                    <span>&gt; Resultados</span>
-                  </div>
-                  <a className="terminal-button compact" href={selectedProject.github} target="_blank" rel="noreferrer">&gt; VER EN GITHUB</a>
+                  {selectedProject.details ? (
+                    <div className="project-case">
+                      {selectedProject.details.map(detail => (
+                        <section key={detail.title}>
+                          <h3>&gt; {detail.title}</h3>
+                          {detail.text && <p>{detail.text}</p>}
+                          {detail.items && (
+                            <ul>{detail.items.map(item => <li key={item}>{item}</li>)}</ul>
+                          )}
+                        </section>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="detail-list">
+                      <span>&gt; Problema</span>
+                      <span>&gt; Objetivo</span>
+                      <span>&gt; Mi participación</span>
+                      <span>&gt; Tecnologías</span>
+                      <span>&gt; Arquitectura</span>
+                      <span>&gt; Resultados</span>
+                    </div>
+                  )}
+                  {selectedProject.github && <a className="terminal-button compact" href={selectedProject.github} target="_blank" rel="noreferrer">&gt; VER EN GITHUB</a>}
                 </div>
               </div>
             </TerminalWindow>

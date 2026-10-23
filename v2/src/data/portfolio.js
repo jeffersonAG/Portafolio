@@ -48,12 +48,7 @@ export const experience = [
   {
     period: '2025 — ACTUALIDAD',
     title: 'Soporte técnico T.I.',
-    description: 'Compañía PalmaTica S.A. Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa.',
-  },
-  {
-    period: '2025',
-    title: 'Infraestructura de red para la implementación del ERP Oracle',
-    description: 'Compañía PalmaTica S.A. Levantamiento y mapeo de la infraestructura de red de una división integrada por dos zonas francas y la empresa nacional. Elaboración de diagramas de red y requerimientos técnicos para la migración a switches y puntos de acceso Fortinet. Solicitud de cotizaciones a proveedores para la licitación, coordinación de trabajos y realización de pruebas técnicas con el proveedor seleccionado en las zonas involucradas.',
+    description: 'Compañía PalmaTica S.A. Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa. Participación en 2025 en el proyecto de infraestructura de red para la implementación del ERP Oracle.',
   },
   {
     period: 'PROYECTOS',
@@ -97,6 +92,37 @@ export const certifications = [
 ];
 
 export const projects = [
+  {
+    slug: 'infraestructura-erp-oracle',
+    name: 'INFRAESTRUCTURA DE RED PARA ERP ORACLE',
+    status: 'EMPRESARIAL',
+    description: 'Compañía PalmaTica S.A. · 2025. Infraestructura de red para apoyar la implementación del ERP Oracle en dos zonas francas y la empresa nacional.',
+    stack: ['Fortinet', 'Switches', 'Wi-Fi'],
+    image: null,
+    placeholderSymbol: 'NET',
+    placeholderLabel: 'PALMATICA // 2025',
+    github: null,
+    details: [
+      {
+        title: 'Alcance',
+        text: 'Preparación de la infraestructura de red de una división integrada por dos zonas francas y la empresa nacional, como parte del proyecto de implementación del ERP Oracle durante 2025.',
+      },
+      {
+        title: 'Mi participación',
+        items: [
+          'Levantamiento y mapeo de la infraestructura de red.',
+          'Elaboración de diagramas de red y requerimientos técnicos para la migración a switches y puntos de acceso Fortinet.',
+          'Solicitud de cotizaciones a proveedores para el proceso de licitación.',
+          'Coordinación de trabajos con el proveedor seleccionado.',
+          'Realización de pruebas técnicas con el proveedor en las zonas involucradas.',
+        ],
+      },
+      {
+        title: 'Tecnologías',
+        text: 'Switches y puntos de acceso Fortinet, redes y conectividad Wi-Fi.',
+      },
+    ],
+  },
   {
     slug: 'carpooling',
     name: 'CARPOOLING',

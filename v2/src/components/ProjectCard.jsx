@@ -6,8 +6,8 @@ export default function ProjectCard({ project, onOpen }) {
           <img src={project.image} alt={`Vista del proyecto ${project.name}`} />
         ) : (
           <div className="project-placeholder" aria-hidden="true">
-            <span>&lt;/&gt;</span>
-            <small>BUILDING</small>
+            <span>{project.placeholderSymbol || '</>'}</span>
+            <small>{project.placeholderLabel || 'BUILDING'}</small>
           </div>
         )}
       </div>
