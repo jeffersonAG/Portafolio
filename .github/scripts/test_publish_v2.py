@@ -19,7 +19,7 @@ def git_tree(**entries):
 class PublicationSafeguards(unittest.TestCase):
     def test_different_pages_configuration_stops_before_any_write(self):
         for source, build_type in [
-            ({"branch": "tester", "path": "/"}, "legacy"),
+            ({"branch": "", "path": "/"}, "legacy"),
             ({"branch": "main", "path": "/docs"}, "legacy"),
             ({"branch": "main", "path": "/"}, "workflow"),
         ]:
@@ -107,10 +107,10 @@ class PublicationSafeguards(unittest.TestCase):
 
     def test_stable_url_uses_existing_pages_prefix(self):
         self.assertEqual(validate_pages({
-            "source": {"branch": "main", "path": "/"},
+            "source": {"branch": "tester", "path": "/"},
             "build_type": "legacy",
             "html_url": "https://example.github.io/Portafolio/",
-        }), "https://example.github.io/Portafolio/preview-v2/")
+        }), ("https://example.github.io/Portafolio/preview-v2/", "tester"))
 
 
 if __name__ == "__main__":

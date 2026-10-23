@@ -11,7 +11,6 @@ import sys
 
 TARGET = "preview-v2"
 SOURCE_BRANCH = "portfolio-v2"
-PUBLISH_BRANCH = "main"
 
 
 class PublishError(RuntimeError):
@@ -38,12 +37,13 @@ def validate_pages(pages):
     source = pages.get("source") or {}
     if pages.get("build_type", "legacy") != "legacy":
         raise PublishError("Existing Pages site uses another deployment method; no site files were changed.")
-    if source != {"branch": PUBLISH_BRANCH, "path": "/"}:
-        raise PublishError("Expected the existing Pages source to be main at /. No site files were changed.")
+    publishing_branch = source.get("branch")
+    if not publishing_branch or source.get("path") != "/":
+        raise PublishError(f"Expected an existing Pages branch at /. Actual source: {source}. No site files were changed.")
     base_url = pages.get("html_url", "")
     if not base_url.startswith("https://"):
         raise PublishError("An existing HTTPS Pages URL is required.")
-    return base_url.rstrip("/") + "/" + TARGET + "/"
+    return base_url.rstrip("/") + "/" + TARGET + "/", publishing_branch
 
 
 def tree_map(tree):
@@ -58,7 +58,7 @@ def assert_original_site_unchanged(before, after, target_sha):
     old.pop(TARGET, None)
     target = new.pop(TARGET, None)
     if old != new or target != ("040000", "tree", target_sha):
-        raise PublishError("Publication would modify original site files; refusing to update main.")
+        raise PublishError("Publication would modify original site files; refusing to update the publishing branch.")
 
 
 def artifact_files(directory):
@@ -100,7 +100,9 @@ def publish(repo, source_sha, directory, api=gh_api):
         raise PublishError("Invalid repository name.")
     if not re.fullmatch(r"[0-9a-f]{40}", source_sha):
         raise PublishError("Invalid source revision.")
-    public_url = validate_pages(api(f"repos/{repo}/pages"))
+    pages = api(f"repos/{repo}/pages")
+    print(f"Existing Pages source: {json.dumps(pages.get('source'))}")
+    public_url, publishing_branch = validate_pages(pages)
     files = artifact_files(directory)
     assert_current_source(api, repo, source_sha)
     entries = []
@@ -113,7 +115,7 @@ def publish(repo, source_sha, directory, api=gh_api):
     site_tree = api(f"repos/{repo}/git/trees", {"tree": entries}, method="POST")["sha"]
 
     for attempt in range(3):
-        main_sha = api(f"repos/{repo}/git/ref/heads/{PUBLISH_BRANCH}")["object"]["sha"]
+        main_sha = api(f"repos/{repo}/git/ref/heads/{publishing_branch}")["object"]["sha"]
         commit = api(f"repos/{repo}/git/commits/{main_sha}")
         old_tree = api(f"repos/{repo}/git/trees/{commit['tree']['sha']}")
         if tree_map(old_tree).get(TARGET) == ("040000", "tree", site_tree):
@@ -132,21 +134,21 @@ def publish(repo, source_sha, directory, api=gh_api):
             "parents": [main_sha],
         }, method="POST")["sha"]
         try:
-            api(f"repos/{repo}/git/refs/heads/{PUBLISH_BRANCH}", {
+            api(f"repos/{repo}/git/refs/heads/{publishing_branch}", {
                 "sha": new_commit, "force": False,
             }, method="PATCH")
             main_sha = new_commit
             break
         except PublishError:
-            latest = api(f"repos/{repo}/git/ref/heads/{PUBLISH_BRANCH}")["object"]["sha"]
+            latest = api(f"repos/{repo}/git/ref/heads/{publishing_branch}")["object"]["sha"]
             if attempt == 2 or latest == main_sha:
                 raise
-            print("main advanced during publication; retrying without overwriting its changes.")
+            print("The publishing branch advanced; retrying without overwriting its changes.")
 
     # GITHUB_TOKEN commits alone do not start a legacy Pages build. Request
     # the normal build explicitly, keeping the existing Pages settings.
     api(f"repos/{repo}/pages/builds", {}, method="POST")
-    print(f"Original site files preserved. Published revision: {main_sha}")
+    print(f"Original site files preserved. Publishing branch: {publishing_branch}. Published revision: {main_sha}")
     print(f"Stable V2 URL: {public_url}")
     return public_url, main_sha
 
