@@ -1,0 +1,88 @@
+name: V2 Stable Preview
+
+on:
+  push:
+    branches: [portfolio-v2]
+    paths:
+      - 'v2/**'
+      - 'IMAGE/**'
+      - '.github/workflows/v2-publish.yml'
+      - '.github/scripts/publish_v2.py'
+      - '.github/scripts/test_publish_v2.py'
+  workflow_dispatch:
+
+concurrency:
+  group: portfolio-v2-stable-preview
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      source_sha: ${{ steps.source.outputs.sha }}
+    steps:
+      - name: Checkout V2 source
+        uses: actions/checkout@v4
+        with:
+          ref: portfolio-v2
+
+      - name: Record source revision
+        id: source
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check publication safeguards
+        run: python3 -m unittest discover -s .github/scripts -p test_publish_v2.py -v
+
+      - name: Install dependencies
+        working-directory: v2
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Test and build V2 with relative asset paths
+        working-directory: v2
+        run: npm run build -- --base=./
+
+      - name: Save stable site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-v2-stable-dist
+          path: v2/dist
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - name: Checkout publication script
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.build.outputs.source_sha }}
+
+      - name: Download built V2
+        uses: actions/download-artifact@v4
+        with:
+          name: portfolio-v2-stable-dist
+          path: stable-dist
+
+      - name: Publish V2 in its own folder
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_SHA: ${{ needs.build.outputs.source_sha }}
+        run: python3 .github/scripts/publish_v2.py stable-dist
