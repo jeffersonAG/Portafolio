@@ -46,32 +46,22 @@ export const skills = [
 
 export const experience = [
   {
-    period: 'ACTUALIDAD',
-    title: 'Soporte técnico e infraestructura',
-    description: 'Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa.',
-  },
-  {
-    period: 'PROYECTOS',
-    title: 'Desarrollo de software',
-    description: 'Aplicaciones, automatización, interfaces web, bases de datos y proyectos personales.',
-  },
-  {
-    period: 'FORMACIÓN',
-    title: 'Redes y ciberseguridad',
-    description: 'Práctica y formación continua en redes, sistemas, seguridad y análisis técnico.',
+    period: '2025 — ACTUALIDAD',
+    title: 'Soporte técnico T.I.',
+    description: 'Compañía PalmaTica S.A. Atención de incidencias, conectividad, sistemas, equipos, redes y continuidad operativa.',
   },
 ];
 
 export const education = [
   {
-    period: 'FORMACIÓN UNIVERSITARIA',
-    title: 'Ingeniería y sistemas de información',
-    description: 'Formación académica orientada al desarrollo, la lógica computacional y los sistemas.',
+    period: '2021 — 2024',
+    title: 'Estudiante de Ingeniería en Computadores',
+    description: 'Tecnológico de Costa Rica (TEC).',
   },
   {
-    period: 'FORMACIÓN TÉCNICA',
-    title: 'Redes, software y ciberseguridad',
-    description: 'Aprendizaje complementario mediante cursos, proyectos y laboratorios prácticos.',
+    period: '2025 — ACTUALIDAD',
+    title: 'Estudiante de Informática',
+    description: 'Universidad Estatal a Distancia (UNED).',
   },
 ];
 
