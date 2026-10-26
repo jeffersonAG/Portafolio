@@ -14,7 +14,7 @@ export const profile = {
 };
 
 export const stats = [
-  ['Proyectos', '3+'],
+  ['Proyectos', '5+'],
   ['Tecnologías', '15+'],
   ['Certificaciones', '6+'],
   ['Áreas', '5'],
@@ -139,6 +139,70 @@ export const projects = [
     stack: ['Kotlin', 'Java', 'MySQL'],
     image: assetBase + '/carpoling_1.png',
     github: profile.github,
+  },
+  {
+    slug: 'nyx',
+    name: 'NYX',
+    status: 'EN EJECUCIÓN',
+    description: 'Asistente de inteligencia artificial local con memoria, herramientas y un laboratorio experimental para entrenar una red neuronal propia con Python y PyTorch.',
+    stack: ['Python', 'PyTorch', 'FastAPI', 'React'],
+    image: null,
+    placeholderSymbol: 'NYX',
+    placeholderLabel: 'INTELIGENCIA ARTIFICIAL',
+    github: 'https://github.com/jeffersonAG/Nyx/tree/feature/nyx-0.2-crimson',
+    details: [
+      {
+        title: 'Objetivo',
+        text: 'Desarrollar un asistente local que reúna conversación, organización personal y recuperación de conocimientos, con control sobre los datos y los procesos de aprendizaje.',
+      },
+      {
+        title: 'Desarrollo actual',
+        items: [
+          'Interfaz web en React y API en Python con FastAPI.',
+          'Conversación local con Qwen mediante Ollama, notas, tareas y calendario.',
+          'Memoria semántica, registro de experiencias y relaciones entre conocimientos con evidencia.',
+          'Laboratorio de red neuronal propia en PyTorch: Transformer, entrenamiento, validación y guardado de pesos.',
+        ],
+      },
+      {
+        title: 'Estado actual',
+        text: 'Proyecto en ejecución. La red neuronal propia está en fase alfa experimental y su entrenamiento requiere datos seleccionados y supervisión; el chat habitual continúa utilizando Qwen mediante Ollama.',
+      },
+    ],
+  },
+  {
+    slug: 'saf',
+    name: 'S.A.F',
+    status: 'EN EJECUCIÓN',
+    description: 'Sistema de Administración Financiera para organizar cuentas, presupuestos, ingresos, gastos y metas desde una aplicación web adaptable a móvil y escritorio.',
+    stack: ['React', 'Django', 'PostgreSQL', 'Docker'],
+    image: null,
+    placeholderSymbol: 'S.A.F',
+    placeholderLabel: 'ADMINISTRACIÓN FINANCIERA',
+    github: null,
+    details: [
+      {
+        title: 'Objetivo',
+        text: 'Centralizar la administración financiera y facilitar el seguimiento de movimientos, presupuestos y objetivos de ahorro desde un mismo panel.',
+      },
+      {
+        title: 'Funciones actuales',
+        items: [
+          'Administración de cuentas, categorías y presupuestos mensuales.',
+          'Registro de ingresos, gastos y transferencias entre cuentas.',
+          'Metas de ahorro, seguimiento de aportes y comprobantes asociados a movimientos.',
+          'Comparación gráfica entre presupuesto y gasto, con acceso y datos separados por usuario.',
+        ],
+      },
+      {
+        title: 'Tecnologías',
+        text: 'React y TypeScript en la interfaz; Python, Django y Django REST Framework en la API; PostgreSQL para los datos y Docker Compose para el despliegue.',
+      },
+      {
+        title: 'Estado actual',
+        text: 'Proyecto en ejecución, con una primera versión funcional y nuevas mejoras planificadas. Repositorio privado.',
+      },
+    ],
   },
   {
     slug: 'portfolio-v2',
